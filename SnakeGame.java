@@ -1,4 +1,3 @@
-// Save this file as SnakeGame.java
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,8 +9,8 @@ public class SnakeGame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         add(new GamePanel());
-        pack();                      // sizes frame to fit content
-        setLocationRelativeTo(null); // center on screen
+        pack();                      
+        setLocationRelativeTo(null); 
         setVisible(true);
     }
 
@@ -22,12 +21,12 @@ public class SnakeGame extends JFrame {
 }
 
 class GamePanel extends JPanel implements ActionListener, KeyListener {
-    // Game constants (change these to tweak the game)
+    // Game constants
     private final int SCREEN_WIDTH = 600;
     private final int SCREEN_HEIGHT = 600;
-    private final int UNIT_SIZE = 25;                 // size of one square (snake segment / food)
+    private final int UNIT_SIZE = 25;                 
     private final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / (UNIT_SIZE * UNIT_SIZE);
-    private final int DELAY = 120;                    // milliseconds between moves (lower -> faster)
+    private final int DELAY = 120;                   
 
     // Snake state
     private final int[] x = new int[GAME_UNITS];      // x positions of snake segments
@@ -36,7 +35,7 @@ class GamePanel extends JPanel implements ActionListener, KeyListener {
     private int applesEaten = 0;                      // score
     private int appleX;                               // apple position
     private int appleY;
-    private char direction = 'R';                     // 'U', 'D', 'L', 'R'
+    private char direction = 'R';                    
     private boolean running = false;
 
     private Timer timer;
@@ -65,7 +64,7 @@ class GamePanel extends JPanel implements ActionListener, KeyListener {
     }
 
     private void move() {
-        // move body: shift segment positions from tail to head
+        // move body
         for (int i = bodyParts; i > 0; i--) {
             x[i] = x[i - 1];
             y[i] = y[i - 1];
